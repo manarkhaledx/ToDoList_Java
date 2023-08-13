@@ -1,11 +1,16 @@
 package com.example.todolist_java;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Toast;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.todolist_java.Utils.DatabaseHandler;
 import com.example.todolist_java.databinding.ActivityAddNewTaskBinding;
@@ -98,8 +103,19 @@ public class AddNewTaskActivity extends AppCompatActivity {
                 }
             }
         });
+        changeStatusColor();
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#77D7EF")));
+            actionBar.setDisplayHomeAsUpEnabled(true); // Enable the system back arrow
+        }
     }
-
+    void changeStatusColor() {
+        // Change status bar color
+        Window window = getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.setStatusBarColor(getResources().getColor(R.color.status_bar_color)); // Change to your desired color resource
+    }
     // Update the state of the button based on the task text
     private void updateButtonState(String task) {
         boolean isValidTask = !TextUtils.isEmpty(task);

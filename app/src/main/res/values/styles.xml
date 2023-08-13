@@ -25,6 +25,11 @@
         <item name="android:textStyle">bold</item>
         <item name="android:fontFamily">@font/poppins_light</item>
     </style>
+    <style name="SplashStyle" parent="Theme.Material3.DayNight.NoActionBar">
+
+        <item name="android:windowIsTranslucent">true</item>
+
+    </style>
 
 
     <dimen name="h4TextSize">35sp</dimen>
@@ -66,4 +71,5 @@
         <item name="fontFamily">@font/poppins_thin</item>
         <item name="android:textStyle">bold</item>
     </style>
+
 </resources>

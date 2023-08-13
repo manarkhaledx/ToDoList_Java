@@ -1,8 +1,15 @@
 package com.example.todolist_java;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.Window;
+import android.view.WindowManager;
+
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
@@ -67,6 +74,22 @@ public class MainActivity extends AppCompatActivity {
         // Set up item touch helper for swipe actions
         RecyclerItemTouchHelper itemTouchHelper = new RecyclerItemTouchHelper(adapter, this);
         new ItemTouchHelper(itemTouchHelper).attachToRecyclerView(recyclerView);
+
+        // Change the action bar color
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#77D7EF")));
+            actionBar.setDisplayHomeAsUpEnabled(true); // Enable the system back arrow
+        }
+
+        changeStatusColor(); // Change the status bar color
+    }
+
+    void changeStatusColor() {
+        // Change status bar color
+        Window window = getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.setStatusBarColor(getResources().getColor(R.color.status_bar_color)); // Change to your desired color resource
     }
 
     // Lifecycle method: Handling activity result
@@ -89,5 +112,15 @@ public class MainActivity extends AppCompatActivity {
             // Exit editing mode for the whole adapter
             adapter.exitEditMode();
         }
+    }
+
+    // Handle action bar item clicks
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed(); // Handle the back arrow click
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
