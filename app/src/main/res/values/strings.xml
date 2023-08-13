@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ToDoList</string>
+    <string name="listcheckbox">ListCheckBox</string>
+    <string name="newtask">newTask</string>
+    <string name="save">Save</string>
+    <string name="new_task">new_task\n</string>
+</resources>

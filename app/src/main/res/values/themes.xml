@@ -1,0 +1,9 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Base.Theme.ToDoList" parent="Theme.Material3.DayNight">
+
+        <item name="android:windowIsTranslucent">true</item>
+
+    </style>
+    <style name="Theme.ToDoList" parent="Base.Theme.ToDoList" />
+
+</resources>
