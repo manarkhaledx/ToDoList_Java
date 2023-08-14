@@ -37,10 +37,10 @@ public class RecyclerItemTouchHelper extends ItemTouchHelper.SimpleCallback {
         if (direction == ItemTouchHelper.LEFT) {
             // Display a confirmation dialog for task deletion
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
-            builder.setTitle("Delete Task");
-            builder.setMessage("Are you sure you want to delete this task?");
-            builder.setPositiveButton("Confirm", (dialog, which) -> adapter.deleteItem(position));
-            builder.setNegativeButton("Cancel", (dialog, which) -> adapter.notifyItemChanged(viewHolder.getAdapterPosition()));
+            builder.setTitle(R.string.delete_task_dialog_title);
+            builder.setMessage(R.string.delete_task_dialog_message);
+            builder.setPositiveButton(R.string.confirm, (dialog, which) -> adapter.deleteItem(position));
+            builder.setNegativeButton(R.string.cancel, (dialog, which) -> adapter.notifyItemChanged(viewHolder.getAdapterPosition()));
             AlertDialog dialog = builder.create();
             dialog.show();
         } else if (direction == ItemTouchHelper.RIGHT) {

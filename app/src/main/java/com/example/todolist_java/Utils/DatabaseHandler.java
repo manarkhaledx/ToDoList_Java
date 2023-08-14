@@ -119,4 +119,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // Delete the task based on its ID
         db.delete(TODO_TABLE, ID + "=?", new String[]{String.valueOf(id)});
     }
+    public void deleteAllTasks() {
+        db.delete(TODO_TABLE, null, null);
+    }
 }

@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
@@ -61,6 +63,13 @@ public class AddNewTaskActivity extends AppCompatActivity {
                 updateButtonState(task);
             }
         }
+        binding.cancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                adapter.exitEditMode();
+                finish();
+            }
+        });
 
         // Button click listener for adding/editing tasks
         binding.newTaskBtn.setOnClickListener(new View.OnClickListener() {
@@ -71,43 +80,67 @@ public class AddNewTaskActivity extends AppCompatActivity {
 
                 if (TextUtils.isEmpty(task)) {
                     // Display a toast if the task is empty
-                    Toast.makeText(AddNewTaskActivity.this, "Please enter a task", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddNewTaskActivity.this, getResources().getString(R.string.enterTask), Toast.LENGTH_SHORT).show();
                 } else {
+                    // Start the animation
+                    binding.newTaskBtn.startAnimation();
+
                     if (isUpdate) {
                         // Handle task update
                         if (taskIdToUpdate != -1) {
                             // Update the task in the database
                             db.updateTask(taskIdToUpdate, task);
-                            Toast.makeText(AddNewTaskActivity.this, "Task updated", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AddNewTaskActivity.this,  getResources().getString(R.string.updateTask), Toast.LENGTH_SHORT).show();
 
                             // Pass the result back to MainActivity
                             Intent resultIntent = new Intent();
                             resultIntent.putExtra("edited_position", taskIdToUpdate);
                             setResult(RESULT_OK, resultIntent);
 
-                            // Close the activity
-                            finish();
+                            // Introduce a 1-second delay before navigating and closing the activity
+                            new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    // Stop the animation
+                                    binding.newTaskBtn.revertAnimation();
+
+                                    // Close the activity
+                                    finish();
+                                }
+                            }, 1000); // Delay of 1 second
                         }
                     } else {
                         // Handle task creation
                         db.insertTask(new ToDoListModel(task, 0)); // Assume status is initially set to 0
-                        Toast.makeText(AddNewTaskActivity.this, "Task created", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddNewTaskActivity.this, getResources().getString(R.string.taskCreated), Toast.LENGTH_SHORT).show();
 
                         // Pass the result back to MainActivity
                         Intent resultIntent = new Intent();
                         setResult(RESULT_OK, resultIntent);
 
-                        // Close the activity
-                        finish();
+                        // Introduce a 1-second delay before navigating and closing the activity
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                // Stop the animation
+                                binding.newTaskBtn.revertAnimation();
+
+                                // Close the activity
+                                finish();
+                            }
+                        }, 1000); // Delay of 1 second
                     }
                 }
             }
         });
+
+
+
+
         changeStatusColor();
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#77D7EF")));
-            actionBar.setDisplayHomeAsUpEnabled(true); // Enable the system back arrow
         }
     }
     void changeStatusColor() {

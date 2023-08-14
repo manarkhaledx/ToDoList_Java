@@ -5,31 +5,63 @@
     android:layout_height="match_parent"
     android:padding="16dp">
 
-    <EditText
-        android:id="@+id/newTask_et"
+    <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
+        android:id="@+id/cancel_btn"
+        android:layout_width="@dimen/_180sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_below="@id/NewTask_et"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/_100sdp"
+        android:text="@string/cancel"
+        android:background="@drawable/ccustombutton"
+        app:backgroundTint="@null"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_16ssp"
+        style="@style/h2"
+        app:layout_constraintEnd_toEndOf="@+id/newTask_btn"
+        app:layout_constraintStart_toStartOf="@+id/newTask_btn"
+        app:layout_constraintTop_toBottomOf="@+id/newTask_btn"
+        tools:ignore="MissingConstraints" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/NewTask_et"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@null"
-        android:hint="@string/new_task"
-        android:minHeight="48dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+        <EditText
+            android:id="@+id/newTask_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="Password"
+            android:ems="10"
+            style="@style/h3"
+            android:hint="@string/new_task"
+            android:inputType="textImeMultiLine"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
+
+    <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
         android:id="@+id/newTask_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/newTask_et"
+        android:layout_width="@dimen/_180sdp"
+        style="@style/h2"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_below="@id/NewTask_et"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="24dp"
-        android:background="@android:color/transparent"
+        android:layout_marginTop="@dimen/_136sdp"
+        android:background="@drawable/ccustombutton"
+        app:spinning_bar_color="@color/white"
+        app:backgroundTint="@null"
         android:text="@string/save"
         android:textAllCaps="false"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/newTask_et"
-        app:layout_constraintTop_toBottomOf="@+id/newTask_et" />
+        android:textColor="@color/white"
+        android:textSize="@dimen/_16ssp"
+        app:layout_constraintEnd_toEndOf="@+id/NewTask_et"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="@+id/NewTask_et"
+        app:layout_constraintTop_toBottomOf="@+id/NewTask_et" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

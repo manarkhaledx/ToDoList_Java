@@ -26,10 +26,13 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.ViewHo
     private Context context; // Context of the activity
 
     // Constructor to initialize the adapter with a DatabaseHandler and a Context
-    public ToDoListAdapter(DatabaseHandler db, Context context) {
+    private AppCompatActivity activity; // Reference to the activity
+
+    public ToDoListAdapter(DatabaseHandler db, AppCompatActivity activity) {
         this.db = db;
-        this.context = context;
+        this.activity = activity;
     }
+
 
     // Create a new ViewHolder when needed
     @NonNull
@@ -90,10 +93,11 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.ViewHo
         Bundle bundle = new Bundle();
         bundle.putInt("id", item.getId());
         bundle.putString("task", item.getTask());
-        Intent intent = new Intent(context, AddNewTaskActivity.class);
+        Intent intent = new Intent(activity, AddNewTaskActivity.class);
         intent.putExtras(bundle); // Attach the task data to the intent
-        ((AppCompatActivity) context).startActivityForResult(intent, 1); // Start the AddNewTaskActivity for editing
+        activity.startActivityForResult(intent, 1); // Start the AddNewTaskActivity for editing
     }
+
 
     // Get the number of items in the list
     @Override

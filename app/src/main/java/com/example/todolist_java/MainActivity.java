@@ -1,15 +1,18 @@
 package com.example.todolist_java;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
@@ -56,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         // Initialize the adapter
         adapter = new ToDoListAdapter(db, this);
 
+
         // Set the adapter on the RecyclerView
         recyclerView.setAdapter(adapter);
 
@@ -84,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
 
         changeStatusColor(); // Change the status bar color
     }
+
 
     void changeStatusColor() {
         // Change status bar color
@@ -115,12 +120,42 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Handle action bar item clicks
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.delete) {
+            // Handle the "Delete All" menu item click
+            showDeleteConfirmationDialog();
+            return true;
+        }
         if (item.getItemId() == android.R.id.home) {
             onBackPressed(); // Handle the back arrow click
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    // Show a confirmation dialog before deleting all tasks
+    private void showDeleteConfirmationDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(getResources().getString(R.string.deleteall));
+        builder.setMessage(getResources().getString(R.string.deleteMessage));
+        builder.setPositiveButton(getResources().getString(R.string.delete), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // User confirmed deletion, perform the delete operation
+                db.deleteAllTasks(); // Delete all tasks from the database
+                tasklist.clear(); // Clear the task list
+                adapter.notifyDataSetChanged(); // Notify the adapter about the data change
+            }
+        });
+        builder.setNegativeButton(getResources().getString(R.string.cancel), null);
+        builder.show();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.deletemenu, menu);
+        return true;
     }
 }

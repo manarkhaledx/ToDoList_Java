@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Other string resources -->
+
     <string name="app_name">قائمة المهام</string>
-    <string name="listcheckbox">خانة الاختيار في القائمة</string>
+    <string name="listcheckbox">مربع الاختيار</string>
     <string name="newtask">مهمة جديدة</string>
     <string name="save">حفظ</string>
+    <string name="new_task">مهمة جديدة\n</string>
+    <string name="cancel">إلغاء</string>
+    <string name="deleteall">حذف الكل</string>
+    <string name="deleteMessage">هل أنت متأكد أنك تريد حذف جميع المهام؟</string>
+    <string name="delete">حذف</string>
+    <string name="enterTask">يرجى إدخال مهمة</string>
+    <string name="updateTask">"تم تحديث المهمة"</string>
+    <string name="taskCreated">"تم إنشاء المهمة"</string>
+    <string name="delete_task_dialog_title">حذف المهمة</string>
+    <string name="delete_task_dialog_message">هل أنت متأكد أنك تريد حذف هذه المهمة؟</string>
+    <string name="confirm">تأكيد</string>
 </resources>

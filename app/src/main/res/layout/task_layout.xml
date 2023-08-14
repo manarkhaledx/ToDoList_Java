@@ -13,13 +13,13 @@
         android:layout_height="wrap_content"
         android:padding="8dp">
 
-        <CheckBox
+        <androidx.appcompat.widget.AppCompatCheckBox
             android:id="@+id/todo_cb"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:paddingStart="8dp"
-            android:buttonTint="@color/status_bar_color"
+            app:buttonTint="@color/status_bar_color"
             android:checked="true"
             tools:text="ToDo"
             tools:ignore="RtlSymmetry" />
