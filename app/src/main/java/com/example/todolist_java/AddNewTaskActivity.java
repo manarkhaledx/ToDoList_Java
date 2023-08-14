@@ -66,7 +66,8 @@ public class AddNewTaskActivity extends AppCompatActivity {
         binding.cancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                adapter.exitEditMode();
+                // Handle cancel action
+                setResult(RESULT_CANCELED);
                 finish();
             }
         });

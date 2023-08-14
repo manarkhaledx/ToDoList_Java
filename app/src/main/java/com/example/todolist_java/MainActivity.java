@@ -116,6 +116,9 @@ public class MainActivity extends AppCompatActivity {
 
             // Exit editing mode for the whole adapter
             adapter.exitEditMode();
+        }else if (requestCode == 1 && resultCode == RESULT_CANCELED) {
+            // Exit editing mode for the whole adapter
+            adapter.exitEditMode();
         }
     }
 
