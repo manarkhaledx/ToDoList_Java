@@ -11,10 +11,12 @@
     <string name="deleteall">حذف الكل</string>
     <string name="deleteMessage">هل أنت متأكد أنك تريد حذف جميع المهام؟</string>
     <string name="delete">حذف</string>
-    <string name="enterTask">يرجى إدخال مهمة</string>
+    <string name="enterTask">  أدخل اسم المهمة والمحتوى بشكل صحيح </string>
     <string name="updateTask">"تم تحديث المهمة"</string>
     <string name="taskCreated">"تم إنشاء المهمة"</string>
     <string name="delete_task_dialog_title">حذف المهمة</string>
     <string name="delete_task_dialog_message">هل أنت متأكد أنك تريد حذف هذه المهمة؟</string>
     <string name="confirm">تأكيد</string>
+    <string name="notename">اسم الملاحظة</string>
+    <string name="notebody">محتوى الملاحظة</string>
 </resources>

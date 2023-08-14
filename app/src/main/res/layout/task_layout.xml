@@ -24,6 +24,18 @@
             tools:text="ToDo"
             tools:ignore="RtlSymmetry" />
 
+        <TextView
+            android:id="@+id/todo_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/h2"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="SmallSp"
+            tools:text="Sample Title" />
+
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

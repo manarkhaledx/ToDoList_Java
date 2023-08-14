@@ -11,7 +11,7 @@
         android:layout_height="@dimen/_40sdp"
         android:layout_below="@id/NewTask_et"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="@dimen/_100sdp"
+        android:layout_marginTop="@dimen/_70sdp"
         android:text="@string/cancel"
         android:background="@drawable/ccustombutton"
         app:backgroundTint="@null"
@@ -24,12 +24,33 @@
         app:layout_constraintTop_toBottomOf="@+id/newTask_btn"
         tools:ignore="MissingConstraints" />
 
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/titlle_et"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/_6sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <EditText
+            android:id="@+id/title_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="title"
+            android:ems="10"
+            style="@style/h3"
+            android:hint="@string/notename"
+            android:inputType="textImeMultiLine"/>
+    </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/NewTask_et"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/_90sdp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
         <EditText
@@ -39,7 +60,7 @@
             android:autofillHints="Password"
             android:ems="10"
             style="@style/h3"
-            android:hint="@string/new_task"
+            android:hint="@string/notebody"
             android:inputType="textImeMultiLine"/>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -51,7 +72,7 @@
         android:layout_height="@dimen/_40sdp"
         android:layout_below="@id/NewTask_et"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="@dimen/_136sdp"
+        android:layout_marginTop="@dimen/_90sdp"
         android:background="@drawable/ccustombutton"
         app:spinning_bar_color="@color/white"
         app:backgroundTint="@null"

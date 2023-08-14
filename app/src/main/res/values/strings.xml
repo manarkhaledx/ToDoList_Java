@@ -8,12 +8,14 @@
     <string name="deleteall">DeleteAll</string>
     <string name="deleteMessage">Are you sure you want to delete all tasks?</string>
     <string name="delete">Delete</string>
-    <string name="enterTask">Please enter a task</string>
+    <string name="enterTask">Please enter a task name and body correct</string>
     <string name="updateTask">"Task updated"</string>
     <string name="taskCreated">"Task created"</string>
     <string name="delete_task_dialog_title">Delete Task</string>
     <string name="delete_task_dialog_message">Are you sure you want to delete this task?</string>
     <string name="confirm">Confirm</string>
+    <string name="notename">NoteName</string>
+    <string name="notebody">NoteBody</string>
 
 
 </resources>
