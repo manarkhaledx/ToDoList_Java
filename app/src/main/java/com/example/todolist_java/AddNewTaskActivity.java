@@ -59,7 +59,9 @@ public class AddNewTaskActivity extends AppCompatActivity {
             if (isUpdate) {
                 // If in update mode, set the task text and update button state
                 String task = bundle.getString("task");
+                String title = bundle.getString("title");
                 binding.newTaskEt.setText(task);
+                binding.titleEt.setText(title);
                 updateButtonState(task);
             }
         }
@@ -78,8 +80,9 @@ public class AddNewTaskActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // Get task text from EditText view
                 String task = binding.newTaskEt.getText().toString().trim();
+                String title = binding.titleEt.getText().toString().trim();
 
-                if (TextUtils.isEmpty(task)) {
+                if (TextUtils.isEmpty(task) || TextUtils.isEmpty(title)) {
                     // Display a toast if the task is empty
                     Toast.makeText(AddNewTaskActivity.this, getResources().getString(R.string.enterTask), Toast.LENGTH_SHORT).show();
                 } else {
@@ -90,7 +93,7 @@ public class AddNewTaskActivity extends AppCompatActivity {
                         // Handle task update
                         if (taskIdToUpdate != -1) {
                             // Update the task in the database
-                            db.updateTask(taskIdToUpdate, task);
+                            db.updateTask(taskIdToUpdate, task, title);
                             Toast.makeText(AddNewTaskActivity.this,  getResources().getString(R.string.updateTask), Toast.LENGTH_SHORT).show();
 
                             // Pass the result back to MainActivity
@@ -112,7 +115,7 @@ public class AddNewTaskActivity extends AppCompatActivity {
                         }
                     } else {
                         // Handle task creation
-                        db.insertTask(new ToDoListModel(task, 0)); // Assume status is initially set to 0
+                        db.insertTask(new ToDoListModel(task,title, 0)); // Assume status is initially set to 0
                         Toast.makeText(AddNewTaskActivity.this, getResources().getString(R.string.taskCreated), Toast.LENGTH_SHORT).show();
 
                         // Pass the result back to MainActivity

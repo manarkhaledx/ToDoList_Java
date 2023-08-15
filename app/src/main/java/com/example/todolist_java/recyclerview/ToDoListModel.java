@@ -2,19 +2,30 @@ package com.example.todolist_java.recyclerview;
 
 public class ToDoListModel {
     private int id,status; //id of task , for the check button
-    private String task; //written tasks
+    private String task,title; //written tasks
     public ToDoListModel() {
         // Empty constructor
     }
-    public ToDoListModel(String task, int status) {
+    public ToDoListModel(String task,String title, int status) {
         this.task = task;
+        this.title = title;
         this.status = status;
+
     }
 
     public ToDoListModel(String task) {
         this.task = task;
         // Initialize other fields with default values if needed
     }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public int getId() {
         return id;
     }

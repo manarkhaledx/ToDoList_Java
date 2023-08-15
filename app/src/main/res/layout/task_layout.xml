@@ -18,6 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
+            android:layout_below="@+id/todo_title"
             android:paddingStart="8dp"
             app:buttonTint="@color/status_bar_color"
             android:checked="true"
@@ -26,13 +27,12 @@
 
         <TextView
             android:id="@+id/todo_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             style="@style/h2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
             android:textSize="10sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             tools:ignore="SmallSp"
             tools:text="Sample Title" />
 

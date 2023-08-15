@@ -50,6 +50,7 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.ViewHo
         ToDoListModel item = toDoList.get(position); // Get the ToDoListModel at the specified position
         holder.binding.todoCb.setText(item.getTask()); // Set the task text to the CheckBox
         holder.binding.todoCb.setChecked(toBoolean(item.getStatus())); // Set the CheckBox state based on the task status
+        holder.binding.todoTitle.setText(item.getTitle());
 
         // Set an event listener for CheckBox state changes
         holder.binding.todoCb.setOnCheckedChangeListener((buttonView, isChecked) -> {
@@ -92,6 +93,7 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.ViewHo
         ToDoListModel item = toDoList.get(position); // Get the ToDoListModel to be edited
         Bundle bundle = new Bundle();
         bundle.putInt("id", item.getId());
+        bundle.putString("title", item.getTitle());
         bundle.putString("task", item.getTask());
         Intent intent = new Intent(activity, AddNewTaskActivity.class);
         intent.putExtras(bundle); // Attach the task data to the intent
