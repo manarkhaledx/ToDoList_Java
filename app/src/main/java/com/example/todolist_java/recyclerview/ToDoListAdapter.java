@@ -10,12 +10,10 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.todolist_java.AddNewTaskActivity;
 import com.example.todolist_java.R;
 import com.example.todolist_java.Utils.DatabaseHandler;
 import com.example.todolist_java.databinding.TaskLayoutBinding;
-
 import java.util.List;
 
 // Adapter class for the RecyclerView

@@ -13,10 +13,6 @@ public class ToDoListModel {
 
     }
 
-    public ToDoListModel(String task) {
-        this.task = task;
-        // Initialize other fields with default values if needed
-    }
 
     public String getTitle() {
         return title;

@@ -18,6 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
+            style="@style/h3"
+            android:textSize="@dimen/_12sdp"
             android:layout_below="@+id/todo_title"
             android:paddingStart="8dp"
             app:buttonTint="@color/status_bar_color"
@@ -27,11 +29,11 @@
 
         <TextView
             android:id="@+id/todo_title"
-            style="@style/h2"
+            style="@style/h4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textSize="10sp"
+            android:textSize="14sp"
             android:textStyle="bold"
             tools:ignore="SmallSp"
             tools:text="Sample Title" />

@@ -1,6 +1,5 @@
 package com.example.todolist_java;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -9,7 +8,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
@@ -94,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
         // Change status bar color
         Window window = getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.setStatusBarColor(getResources().getColor(R.color.status_bar_color)); // Change to your desired color resource
+        window.setStatusBarColor(getResources().getColor(R.color.status_bar_color,null)); // Change to your desired color resource
     }
 
     // Lifecycle method: Handling activity result
@@ -143,14 +141,11 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(getResources().getString(R.string.deleteall));
         builder.setMessage(getResources().getString(R.string.deleteMessage));
-        builder.setPositiveButton(getResources().getString(R.string.delete), new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // User confirmed deletion, perform the delete operation
-                db.deleteAllTasks(); // Delete all tasks from the database
-                tasklist.clear(); // Clear the task list
-                adapter.notifyDataSetChanged(); // Notify the adapter about the data change
-            }
+        builder.setPositiveButton(getResources().getString(R.string.delete), (dialog, which) -> {
+            // User confirmed deletion, perform the delete operation
+            db.deleteAllTasks(); // Delete all tasks from the database
+            tasklist.clear(); // Clear the task list
+            adapter.notifyDataSetChanged(); // Notify the adapter about the data change
         });
         builder.setNegativeButton(getResources().getString(R.string.cancel), null);
         builder.show();
@@ -161,4 +156,11 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.deletemenu, menu);
         return true;
     }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        db.closeDatabase();
+    }
+
 }
+

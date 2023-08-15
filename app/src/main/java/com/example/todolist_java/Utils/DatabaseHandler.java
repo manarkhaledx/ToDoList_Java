@@ -62,6 +62,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         }
     }
 
+
     // Insert a new task into the database
     public void insertTask(ToDoListModel task) {
         ContentValues cv = new ContentValues();
@@ -74,11 +75,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     // Retrieve all tasks from the database
     public List<ToDoListModel> getAllTasks() {
         List<ToDoListModel> taskList = new ArrayList<>();
-        Cursor cur = null;
         db.beginTransaction();
-        try {
+        try (Cursor cur = db.query(TODO_TABLE, null, null, null, null, null, null, null)) {
             // Query all rows from the todo table
-            cur = db.query(TODO_TABLE, null, null, null, null, null, null, null);
             if (cur != null) {
                 if (cur.moveToFirst()) {
                     int idIndex = cur.getColumnIndex(ID);
@@ -98,9 +97,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             }
         } finally {
             db.endTransaction(); // End the transaction
-            if (cur != null) {
-                cur.close(); // Close the cursor
-            }
+            // Close the cursor
         }
         return taskList;
     }

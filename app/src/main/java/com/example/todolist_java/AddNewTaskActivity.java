@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
@@ -16,7 +15,6 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.todolist_java.Utils.DatabaseHandler;
 import com.example.todolist_java.databinding.ActivityAddNewTaskBinding;
-import com.example.todolist_java.recyclerview.ToDoListAdapter;
 import com.example.todolist_java.recyclerview.ToDoListModel;
 
 
@@ -33,8 +31,6 @@ public class AddNewTaskActivity extends AppCompatActivity {
     private boolean isUpdate = false;
     private int taskIdToUpdate = -1;
 
-    // Adapter for the RecyclerView
-    private ToDoListAdapter adapter;
 
     // Lifecycle method: Activity creation
     @Override
@@ -65,75 +61,63 @@ public class AddNewTaskActivity extends AppCompatActivity {
                 updateButtonState(task);
             }
         }
-        binding.cancelBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Handle cancel action
-                setResult(RESULT_CANCELED);
-                finish();
-            }
+        binding.cancelBtn.setOnClickListener(v -> {
+            // Handle cancel action
+            setResult(RESULT_CANCELED);
+            finish();
         });
 
         // Button click listener for adding/editing tasks
-        binding.newTaskBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Get task text from EditText view
-                String task = binding.newTaskEt.getText().toString().trim();
-                String title = binding.titleEt.getText().toString().trim();
+        binding.newTaskBtn.setOnClickListener(v -> {
+            // Get task text from EditText view
+            String task = binding.newTaskEt.getText().toString().trim();
+            String title = binding.titleEt.getText().toString().trim();
 
-                if (TextUtils.isEmpty(task) || TextUtils.isEmpty(title)) {
-                    // Display a toast if the task is empty
-                    Toast.makeText(AddNewTaskActivity.this, getResources().getString(R.string.enterTask), Toast.LENGTH_SHORT).show();
-                } else {
-                    // Start the animation
-                    binding.newTaskBtn.startAnimation();
+            if (TextUtils.isEmpty(task) || TextUtils.isEmpty(title)) {
+                // Display a toast if the task is empty
+                Toast.makeText(AddNewTaskActivity.this, getResources().getString(R.string.enterTask), Toast.LENGTH_SHORT).show();
+            } else {
+                // Start the animation
+                binding.newTaskBtn.startAnimation();
 
-                    if (isUpdate) {
-                        // Handle task update
-                        if (taskIdToUpdate != -1) {
-                            // Update the task in the database
-                            db.updateTask(taskIdToUpdate, task, title);
-                            Toast.makeText(AddNewTaskActivity.this,  getResources().getString(R.string.updateTask), Toast.LENGTH_SHORT).show();
-
-                            // Pass the result back to MainActivity
-                            Intent resultIntent = new Intent();
-                            resultIntent.putExtra("edited_position", taskIdToUpdate);
-                            setResult(RESULT_OK, resultIntent);
-
-                            // Introduce a 1-second delay before navigating and closing the activity
-                            new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    // Stop the animation
-                                    binding.newTaskBtn.revertAnimation();
-
-                                    // Close the activity
-                                    finish();
-                                }
-                            }, 1000); // Delay of 1 second
-                        }
-                    } else {
-                        // Handle task creation
-                        db.insertTask(new ToDoListModel(task,title, 0)); // Assume status is initially set to 0
-                        Toast.makeText(AddNewTaskActivity.this, getResources().getString(R.string.taskCreated), Toast.LENGTH_SHORT).show();
+                if (isUpdate) {
+                    // Handle task update
+                    if (taskIdToUpdate != -1) {
+                        // Update the task in the database
+                        db.updateTask(taskIdToUpdate, task, title);
+                        Toast.makeText(AddNewTaskActivity.this,  getResources().getString(R.string.updateTask), Toast.LENGTH_SHORT).show();
 
                         // Pass the result back to MainActivity
                         Intent resultIntent = new Intent();
+                        resultIntent.putExtra("edited_position", taskIdToUpdate);
                         setResult(RESULT_OK, resultIntent);
 
                         // Introduce a 1-second delay before navigating and closing the activity
-                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                // Stop the animation
-                                binding.newTaskBtn.revertAnimation();
+                        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+                            // Stop the animation
+                            binding.newTaskBtn.revertAnimation();
 
-                                // Close the activity
-                                finish();
-                            }
+                            // Close the activity
+                            finish();
                         }, 1000); // Delay of 1 second
                     }
+                } else {
+                    // Handle task creation
+                    db.insertTask(new ToDoListModel(task,title, 0)); // Assume status is initially set to 0
+                    Toast.makeText(AddNewTaskActivity.this, getResources().getString(R.string.taskCreated), Toast.LENGTH_SHORT).show();
+
+                    // Pass the result back to MainActivity
+                    Intent resultIntent = new Intent();
+                    setResult(RESULT_OK, resultIntent);
+
+                    // Introduce a 1-second delay before navigating and closing the activity
+                    new Handler(Looper.getMainLooper()).postDelayed(() -> {
+                        // Stop the animation
+                        binding.newTaskBtn.revertAnimation();
+
+                        // Close the activity
+                        finish();
+                    }, 1000); // Delay of 1 second
                 }
             }
         });
@@ -151,12 +135,17 @@ public class AddNewTaskActivity extends AppCompatActivity {
         // Change status bar color
         Window window = getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.setStatusBarColor(getResources().getColor(R.color.status_bar_color)); // Change to your desired color resource
+        window.setStatusBarColor(getResources().getColor(R.color.status_bar_color,null)); // Change to your desired color resource
     }
     // Update the state of the button based on the task text
     private void updateButtonState(String task) {
         boolean isValidTask = !TextUtils.isEmpty(task);
         binding.newTaskBtn.setEnabled(isValidTask);
-        binding.newTaskBtn.setTextColor(getResources().getColor(isValidTask ? R.color.status_bar_color : R.color.g_background_facebook));
+        binding.newTaskBtn.setTextColor(getResources().getColor(isValidTask ? R.color.status_bar_color : R.color.g_background_facebook,null));
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        db.closeDatabase();
     }
 }

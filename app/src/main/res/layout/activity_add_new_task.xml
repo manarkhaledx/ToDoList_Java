@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="@dimen/_10sdp">
 
     <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
         android:id="@+id/cancel_btn"
