@@ -16,13 +16,13 @@ It utilizes the SQLite database to store task data and employs RecyclerView for 
 <table>
   <tr>
     <td>
-      <img src="https://cdn.discordapp.com/attachments/900784440568078346/1140813589662416936/image.png" width="250" height="500"/>
+      <img src="https://github.com/manarkhaledx/ToDoList_Java/assets/96601859/619d702b-f62b-48be-92eb-2e6f851bbc9f" width="250" height="500"/>
     </td>
     <td>
-      <img src="https://cdn.discordapp.com/attachments/900784440568078346/1140813340738855012/image.png" width="250" height="500"/>
+      <img src="https://github.com/manarkhaledx/ToDoList_Java/assets/96601859/7be2924e-438d-4930-a575-9dc29fcdd1d8" width="250" height="500"/>
     </td>
     <td>
-      <img src="https://cdn.discordapp.com/attachments/900784440568078346/1140813414550225057/image.png" width="250" height="500"/>
+      <img src="https://github.com/manarkhaledx/ToDoList_Java/assets/96601859/b13dee6b-d29c-4fdc-93df-cbef33de9aa7" width="250" height="500"/>
     </td>
   </tr>
    <tr>
@@ -30,7 +30,7 @@ It utilizes the SQLite database to store task data and employs RecyclerView for 
       <img src="https://cdn.discordapp.com/attachments/900784440568078346/1140812526452482048/image.png" width="250" height="500"/>
     </td>
     <td>
-      <img src="https://cdn.discordapp.com/attachments/900784440568078346/1140813480891531364/image.png" width="250" height="500"/>
+      <img src="https://github.com/manarkhaledx/ToDoList_Java/assets/96601859/a20fc2b9-1495-4ff5-91df-4a136f306eab" width="250" height="500"/>
     </td>
   </tr>
 </table>
