@@ -16,23 +16,35 @@ import com.example.todolist_java.Utils.DatabaseHandler;
 import com.example.todolist_java.databinding.TaskLayoutBinding;
 import java.util.List;
 
-// Adapter class for the RecyclerView
+/**
+ * Adapter class for the RecyclerView to display ToDoList items.
+ */
 public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.ViewHolder> {
 
     private List<ToDoListModel> toDoList; // List to hold ToDoListModel objects
     private DatabaseHandler db; // DatabaseHandler instance to interact with the database
     private Context context; // Context of the activity
-
-    // Constructor to initialize the adapter with a DatabaseHandler and a Context
     private AppCompatActivity activity; // Reference to the activity
 
+    /**
+     * Constructor to initialize the adapter with a DatabaseHandler and an AppCompatActivity.
+     *
+     * @param db       The DatabaseHandler instance.
+     * @param activity The AppCompatActivity.
+     */
     public ToDoListAdapter(DatabaseHandler db, AppCompatActivity activity) {
         this.db = db;
         this.activity = activity;
     }
 
 
-    // Create a new ViewHolder when needed
+    /**
+     * Create a new ViewHolder when needed.
+     *
+     * @param parent   The parent ViewGroup.
+     * @param viewType The view type of the new view.
+     * @return A new ViewHolder instance.
+     */
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -41,7 +53,12 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.ViewHo
         return new ViewHolder(view);
     }
 
-    // Bind data to the ViewHolder
+    /**
+     * Bind data to the ViewHolder.
+     *
+     * @param holder   The ViewHolder to bind data to.
+     * @param position The position of the item in the data set.
+     */
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         db.openDatabase(); // Open the database
@@ -67,12 +84,21 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.ViewHo
         });
     }
 
-    // Convert integer to boolean
+    /**
+     * Convert integer to boolean.
+     *
+     * @param n The integer to convert.
+     * @return The boolean value.
+     */
     private boolean toBoolean(int n) {
         return n != 0;
     }
 
-    // Delete a task item at the specified position
+    /**
+     * Delete a task item at the specified position.
+     *
+     * @param position The position of the item to be deleted.
+     */
     public void deleteItem(int position) {
         ToDoListModel item = toDoList.get(position); // Get the ToDoListModel to be deleted
         db.deleteTask(item.getId()); // Delete the task from the database
@@ -80,13 +106,21 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.ViewHo
         notifyItemRemoved(position); // Notify the adapter about the removal
     }
 
-    // Set the list of tasks and notify the adapter about the data change
+    /**
+     * Set the list of tasks and notify the adapter about the data change.
+     *
+     * @param toDoList The list of ToDoListModel objects.
+     */
     public void setTasks(List<ToDoListModel> toDoList) {
         this.toDoList = toDoList;
         notifyDataSetChanged();
     }
 
-    // Edit a task item at the specified position
+    /**
+     * Edit a task item at the specified position.
+     *
+     * @param position The position of the item to be edited.
+     */
     public void editItem(int position) {
         ToDoListModel item = toDoList.get(position); // Get the ToDoListModel to be edited
         Bundle bundle = new Bundle();
@@ -99,13 +133,21 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.ViewHo
     }
 
 
-    // Get the number of items in the list
+    /**
+     * Get the number of items in the list.
+     *
+     * @return The number of items in the data set.
+     */
     @Override
     public int getItemCount() {
         return toDoList.size();
     }
 
-    // ViewHolder class to hold the task item view
+    /**
+     * Get the number of items in the list.
+     *
+     * @return The number of items in the data set.
+     */
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TaskLayoutBinding binding; // Binding for the task item view
 
@@ -115,7 +157,9 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.ViewHo
         }
     }
 
-    // Method to exit edit mode
+    /**
+     * Method to exit edit mode.
+     */
     public void exitEditMode() {
         // Update any state or variables related to editing mode
         // Call notifyDataSetChanged() to refresh the adapter's view

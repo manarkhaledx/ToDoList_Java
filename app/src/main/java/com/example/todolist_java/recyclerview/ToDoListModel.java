@@ -1,5 +1,8 @@
 package com.example.todolist_java.recyclerview;
 
+/**
+ * Model class representing a ToDoList item.
+ */
 public class ToDoListModel {
     private int id,status; //id of task , for the check button
     private String task,title; //written tasks

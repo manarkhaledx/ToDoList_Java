@@ -18,7 +18,9 @@ import com.example.todolist_java.databinding.ActivityAddNewTaskBinding;
 import com.example.todolist_java.recyclerview.ToDoListModel;
 
 
-// Activity to add or edit tasks
+/**
+ * Activity to add or edit tasks.
+ */
 public class AddNewTaskActivity extends AppCompatActivity {
 
     // Binding for the activity layout
@@ -124,7 +126,9 @@ public class AddNewTaskActivity extends AppCompatActivity {
 
 
 
-
+        /**
+         * Change the status bar color.
+         */
         changeStatusColor();
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -137,7 +141,11 @@ public class AddNewTaskActivity extends AppCompatActivity {
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.setStatusBarColor(getResources().getColor(R.color.status_bar_color,null)); // Change to your desired color resource
     }
-    // Update the state of the button based on the task text
+    /**
+     * Update the state of the button based on the task text.
+     *
+     * @param task The task text to update the button state.
+     */
     private void updateButtonState(String task) {
         boolean isValidTask = !TextUtils.isEmpty(task);
         binding.newTaskBtn.setEnabled(isValidTask);

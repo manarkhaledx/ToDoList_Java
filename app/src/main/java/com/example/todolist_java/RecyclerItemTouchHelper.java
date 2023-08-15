@@ -13,7 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.todolist_java.recyclerview.ToDoListAdapter;
 
 
-// ItemTouchHelper implementation for handling swipe actions in the RecyclerView
+/**
+ * ItemTouchHelper implementation for handling swipe actions in the RecyclerView.
+ */
 public class RecyclerItemTouchHelper extends ItemTouchHelper.SimpleCallback {
     private final ToDoListAdapter adapter;
     private final Context context;

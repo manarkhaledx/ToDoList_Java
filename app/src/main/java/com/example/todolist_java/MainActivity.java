@@ -22,7 +22,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-// The main activity for the to-do list app
+/**
+ * The main activity for the to-do list app.
+ */
 public class MainActivity extends AppCompatActivity {
 
     // List to hold tasks
@@ -87,7 +89,9 @@ public class MainActivity extends AppCompatActivity {
         changeStatusColor(); // Change the status bar color
     }
 
-
+    /**
+     * Change the status bar color.
+     */
     void changeStatusColor() {
         // Change status bar color
         Window window = getWindow();

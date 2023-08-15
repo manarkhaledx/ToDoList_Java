@@ -13,7 +13,9 @@ import com.example.todolist_java.recyclerview.ToDoListModel;
 import java.util.ArrayList;
 import java.util.List;
 
-// DatabaseHandler class to manage SQLite database
+/**
+ * DatabaseHandler class to manage SQLite database for ToDoList items.
+ */
 public class DatabaseHandler extends SQLiteOpenHelper {
 
     private static final int VERSION = 1;
@@ -30,32 +32,38 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     private SQLiteDatabase db;
 
-    // Constructor to create the database with the given context
+    /**
+     * Constructor to create the database with the given context.
+     *
+     * @param context The context of the application.
+     */
     public DatabaseHandler(@Nullable Context context) {
         super(context, NAME, null, VERSION);
     }
 
-    // Create the database table
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_TODO_TABLE);
     }
 
-    // Handle database upgrades (dropping and recreating the table)
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // Drop the older table
+
         db.execSQL("DROP TABLE IF EXISTS " + TODO_TABLE);
-        // Create the table again
+
         onCreate(db);
     }
 
-    // Open the database for writing
+    /**
+     * Open the database for writing.
+     */
     public void openDatabase() {
         db = this.getWritableDatabase();
     }
 
-    // Close the database
+    /**
+     * Close the database.
+     */
     public void closeDatabase() {
         if (db != null && db.isOpen()) {
             db.close();
@@ -63,7 +71,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
 
-    // Insert a new task into the database
+    /**
+     * Insert a new task into the database.
+     *
+     * @param task The ToDoListModel object representing the task.
+     */
     public void insertTask(ToDoListModel task) {
         ContentValues cv = new ContentValues();
         cv.put(TASK, task.getTask());
@@ -72,7 +84,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.insert(TODO_TABLE, null, cv);
     }
 
-    // Retrieve all tasks from the database
+    /**
+     * Retrieve all tasks from the database.
+     *
+     * @return A list of ToDoListModel objects representing tasks.
+     */
     public List<ToDoListModel> getAllTasks() {
         List<ToDoListModel> taskList = new ArrayList<>();
         db.beginTransaction();
@@ -102,7 +118,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return taskList;
     }
 
-    // Update a task in the database
+    /**
+     * Update a task in the database.
+     *
+     * @param id    The ID of the task to update.
+     * @param task  The updated task description.
+     * @param title The updated task title.
+     */
     public void updateTask(int id, String task,String title) {
         ContentValues cv = new ContentValues();
         cv.put(TASK, task);
@@ -111,7 +133,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.update(TODO_TABLE, cv, ID + "=?", new String[]{String.valueOf(id)});
     }
 
-    // Update the status of a task in the database
+    /**
+     * Update the status of a task in the database.
+     *
+     * @param id     The ID of the task to update.
+     * @param status The updated status (0 for unchecked, 1 for checked).
+     */
     public void updateStatus(int id, int status) {
         ContentValues cv = new ContentValues();
         cv.put(STATUS, status);
@@ -119,7 +146,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.update(TODO_TABLE, cv, ID + "=?", new String[]{String.valueOf(id)});
     }
 
-    // Delete a task from the database
+    /**
+     * Delete a task from the database.
+     *
+     * @param id The ID of the task to delete.
+     */
     public void deleteTask(int id) {
         // Delete the task based on its ID
         db.delete(TODO_TABLE, ID + "=?", new String[]{String.valueOf(id)});
