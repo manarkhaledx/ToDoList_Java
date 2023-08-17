@@ -44,7 +44,7 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     //loading button
     implementation ("br.com.simplepass:loading-button-android:2.2.0")
-    //intuit //fit Screen
+    //intuit //fit sizes in all Screen
     implementation ("com.intuit.sdp:sdp-android:1.0.6")
     implementation ("com.intuit.ssp:ssp-android:1.0.6")
 }

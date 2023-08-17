@@ -106,15 +106,8 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == 1 && resultCode == RESULT_OK) {
             // Fetch updated tasks from the database and update the adapter
             tasklist = db.getAllTasks();
-            Collections.reverse(tasklist); // Reverse the list
+            Collections.reverse(tasklist); // Rearrange the list
             adapter.setTasks(tasklist);
-
-            // Optional: Scroll to the edited item to make sure it's visible
-            int editedPosition = data.getIntExtra("edited_position", -1);
-            if (editedPosition != -1) {
-                // Notify the adapter that the item at the edited position has changed
-                adapter.notifyItemChanged(editedPosition);
-            }
 
             // Exit editing mode for the whole adapter
             adapter.exitEditMode();
@@ -124,8 +117,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // Handle action bar item clicks
-
+    // Handle action bar item clicks (Handles the menu)
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.deletemenu, menu);
+        return true;
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.delete) {
@@ -155,11 +152,7 @@ public class MainActivity extends AppCompatActivity {
         builder.show();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.deletemenu, menu);
-        return true;
-    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();

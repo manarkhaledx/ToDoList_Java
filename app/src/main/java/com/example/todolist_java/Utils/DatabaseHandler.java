@@ -38,11 +38,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
      * @param context The context of the application.
      */
     public DatabaseHandler(@Nullable Context context) {
+
         super(context, NAME, null, VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+
         db.execSQL(CREATE_TODO_TABLE);
     }
 
@@ -58,6 +60,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
      * Open the database for writing.
      */
     public void openDatabase() {
+
         db = this.getWritableDatabase();
     }
 

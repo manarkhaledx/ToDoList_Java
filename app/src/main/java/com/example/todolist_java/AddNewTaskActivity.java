@@ -47,7 +47,7 @@ public class AddNewTaskActivity extends AppCompatActivity {
         db = new DatabaseHandler(this);
         db.openDatabase();
 
-        // Get task data from intent extras
+        // Get task data from intent
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             // Check if the activity is in update mode

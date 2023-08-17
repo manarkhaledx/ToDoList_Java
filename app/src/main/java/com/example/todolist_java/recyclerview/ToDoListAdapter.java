@@ -23,7 +23,6 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.ViewHo
 
     private List<ToDoListModel> toDoList; // List to hold ToDoListModel objects
     private DatabaseHandler db; // DatabaseHandler instance to interact with the database
-    private Context context; // Context of the activity
     private AppCompatActivity activity; // Reference to the activity
 
     /**
@@ -77,7 +76,7 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.ViewHo
             }
         });
 
-        // Set an event listener for long click (Edit task)
+        // Set an event listener when swap the item(Task)
         holder.binding.getRoot().setOnLongClickListener(v -> {
             editItem(position); // Call the editItem method to edit the task
             return true;
@@ -85,12 +84,13 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.ViewHo
     }
 
     /**
-     * Convert integer to boolean.
+     * Convert check status to boolean.
      *
      * @param n The integer to convert.
      * @return The boolean value.
      */
     private boolean toBoolean(int n) {
+
         return n != 0;
     }
 
@@ -140,14 +140,11 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.ViewHo
      */
     @Override
     public int getItemCount() {
+
         return toDoList.size();
     }
 
-    /**
-     * Get the number of items in the list.
-     *
-     * @return The number of items in the data set.
-     */
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TaskLayoutBinding binding; // Binding for the task item view
 
@@ -159,6 +156,7 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.ViewHo
 
     /**
      * Method to exit edit mode.
+     * fix swap edit bug
      */
     public void exitEditMode() {
         // Update any state or variables related to editing mode
