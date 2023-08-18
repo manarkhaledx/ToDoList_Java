@@ -7,8 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-
-
 public class SplashScreen extends AppCompatActivity {
 
     @Override
@@ -18,13 +16,14 @@ public class SplashScreen extends AppCompatActivity {
         new Handler().postDelayed(() -> {
             startActivity(new Intent(SplashScreen.this, MainActivity.class));
             finish();
-        },3000);
+        }, 3000);
         changeStatusColor();
     }
-    void changeStatusColor(){
+
+    void changeStatusColor() {
         // Change status bar color
         Window window = getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.setStatusBarColor(getResources().getColor(R.color.status_bar_color,null)); // Change to your desired color resource
+        window.setStatusBarColor(getResources().getColor(R.color.status_bar_color, null)); // Change to your desired color resource
     }
 }
