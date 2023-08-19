@@ -16,21 +16,27 @@ It utilizes the SQLite database to store task data and employs RecyclerView for 
 <table>
   <tr>
     <td>
-      <img src="https://github.com/manarkhaledx/ToDoList_Java/assets/96601859/619d702b-f62b-48be-92eb-2e6f851bbc9f" width="250" height="500"/>
+      <img src="https://github.com/manarkhaledx/ToDoList_Java/assets/96601859/67c040b0-fb00-435b-9b02-f48bed04da6b" width="250" height="500"/>
     </td>
     <td>
-      <img src="https://github.com/manarkhaledx/ToDoList_Java/assets/96601859/7be2924e-438d-4930-a575-9dc29fcdd1d8" width="250" height="500"/>
+      <img src="https://github.com/manarkhaledx/ToDoList_Java/assets/96601859/b9df2962-c757-4a0c-9191-96e202cef3f6" width="250" height="500"/>
     </td>
     <td>
-      <img src="https://github.com/manarkhaledx/ToDoList_Java/assets/96601859/b13dee6b-d29c-4fdc-93df-cbef33de9aa7" width="250" height="500"/>
+      <img src="https://github.com/manarkhaledx/ToDoList_Java/assets/96601859/23b5b2f4-6aa8-4b82-8205-f07092f9eaef" width="250" height="500"/>
     </td>
   </tr>
    <tr>
     <td>
-      <img src="https://cdn.discordapp.com/attachments/900784440568078346/1140812526452482048/image.png" width="250" height="500"/>
+      <img src="https://github.com/manarkhaledx/ToDoList_Java/assets/96601859/202bef52-0982-4942-b3f2-df503d0641d7" width="250" height="500"/>
     </td>
     <td>
-      <img src="https://github.com/manarkhaledx/ToDoList_Java/assets/96601859/a20fc2b9-1495-4ff5-91df-4a136f306eab" width="250" height="500"/>
+      <img src="https://github.com/manarkhaledx/ToDoList_Java/assets/96601859/b64faf19-1111-4518-b4bb-a515aaf391cb" width="250" height="500"/>
+    </td>
+      <td>
+      <img src="https://github.com/manarkhaledx/ToDoList_Java/assets/96601859/d5b9d4e6-5f87-4f76-925b-a1cb21fb0a08" width="250" height="500"/>
+    </td>
+      <td>
+      <img src="https://github.com/manarkhaledx/ToDoList_Java/assets/96601859/3b15c2ff-39c1-4f29-9ea6-ec3120c730fe" width="250" height="500"/>
     </td>
   </tr>
 </table>
