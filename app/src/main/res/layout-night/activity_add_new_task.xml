@@ -1,0 +1,100 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/_10sdp">
+
+    <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
+        android:id="@+id/cancel_btn"
+        android:layout_width="@dimen/_180sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_below="@id/NewTask_et"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/_70sdp"
+        android:text="@string/cancel"
+        android:background="@drawable/ccustombutton"
+        app:backgroundTint="@null"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_16ssp"
+        style="@style/h2"
+        app:layout_constraintEnd_toEndOf="@+id/newTask_btn"
+        app:layout_constraintStart_toStartOf="@+id/newTask_btn"
+        app:layout_constraintTop_toBottomOf="@+id/newTask_btn"
+        tools:ignore="MissingConstraints" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/titlle_et"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/_6sdp"
+        app:boxStrokeColor="@color/status_bar_color"
+        app:counterTextColor="@color/status_bar_color"
+        app:prefixTextColor="@color/status_bar_color"
+        app:hintTextColor="@color/status_bar_color"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <EditText
+            android:id="@+id/title_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="title"
+            android:ems="10"
+            android:textColorHighlight="@color/status_bar_color"
+            style="@style/h3"
+            android:textColor="@color/white"
+            android:hint="@string/notename"
+            android:inputType="textImeMultiLine"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/NewTask_et"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:boxStrokeColor="@color/status_bar_color"
+        app:counterTextColor="@color/status_bar_color"
+        app:placeholderTextColor="@color/status_bar_color"
+        app:prefixTextColor="@color/status_bar_color"
+        app:hintTextColor="@color/status_bar_color"
+        android:layout_marginTop="@dimen/_90sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <EditText
+            android:id="@+id/newTask_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="Password"
+            android:ems="10" android:textColorHighlight="@color/status_bar_color"
+            android:textColor="@color/white"
+            style="@style/h3"
+            android:hint="@string/notebody"
+            android:inputType="textImeMultiLine"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
+        android:id="@+id/newTask_btn"
+        android:layout_width="@dimen/_180sdp"
+        style="@style/h2"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_below="@id/NewTask_et"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/_90sdp"
+        android:background="@drawable/ccustombutton"
+        app:spinning_bar_color="@color/white"
+        app:backgroundTint="@null"
+        android:text="@string/save"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_16ssp"
+        app:layout_constraintEnd_toEndOf="@+id/NewTask_et"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="@+id/NewTask_et"
+        app:layout_constraintTop_toBottomOf="@+id/NewTask_et" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

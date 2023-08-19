@@ -82,9 +82,10 @@ public class MainActivity extends AppCompatActivity {
         // Change the action bar color
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
-            actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#77D7EF")));
+            actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.status_bar_color,null))); // Use getResources() to get the color
             actionBar.setDisplayHomeAsUpEnabled(true); // Enable the system back arrow
         }
+
 
         changeStatusColor(); // Change the status bar color
     }

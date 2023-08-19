@@ -1,0 +1,9 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="800dp"
+    android:height="800dp"
+    android:viewportWidth="309.06"
+    android:viewportHeight="309.06">
+  <path
+      android:pathData="M280.71,126.18h-97.82V28.34C182.89,12.71 170.17,0 154.53,0S126.17,12.71 126.17,28.34v97.84H28.36C12.72,126.18 0,138.9 0,154.53c0,15.62 12.72,28.34 28.36,28.34h97.81v97.84c0,15.63 12.71,28.35 28.36,28.35c15.64,0 28.36,-12.72 28.36,-28.35v-97.84h97.82c15.63,0 28.35,-12.72 28.35,-28.34C309.06,138.9 296.34,126.18 280.71,126.18z"
+      android:fillColor="#000000"/> <!-- Set the fill color to black for dark mode -->
+</vector>

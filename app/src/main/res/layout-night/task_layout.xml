@@ -1,0 +1,46 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="@color/dark"
+    app:cardCornerRadius="8dp"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginVertical="8dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/todo_cb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/g_gray500"
+            style="@style/h3"
+            android:textSize="@dimen/_12sdp"
+            android:layout_below="@+id/todo_title"
+            android:paddingStart="8dp"
+            app:buttonTint="@color/status_bar_color"
+            android:checked="true"
+            tools:text="ToDo"
+            tools:ignore="RtlSymmetry" />
+
+        <TextView
+            android:id="@+id/todo_title"
+            android:textColor="@color/g_gray500"
+            style="@style/h4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            tools:ignore="SmallSp"
+            tools:text="Sample Title" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
