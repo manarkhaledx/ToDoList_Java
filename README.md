@@ -6,7 +6,7 @@ It utilizes the SQLite database to store task data and employs RecyclerView for 
 - Add new tasks with a title.
 - Edit existing tasks.
 - Delete tasks by swiping left.
-- Mark tasks as completed by swiping right.
+- Mark tasks as completed by marking on checkBox.
 - Delete all tasks via the options menu.
 - Smooth animations and user-friendly interactions.
 - A splash screen for a visually appealing start.
