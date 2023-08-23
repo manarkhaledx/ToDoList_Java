@@ -33,9 +33,6 @@ It utilizes the SQLite database to store task data and employs RecyclerView for 
       <img src="https://github.com/manarkhaledx/ToDoList_Java/assets/96601859/b64faf19-1111-4518-b4bb-a515aaf391cb" width="250" height="500"/>
     </td>
       <td>
-      <img src="https://github.com/manarkhaledx/ToDoList_Java/assets/96601859/d5b9d4e6-5f87-4f76-925b-a1cb21fb0a08" width="250" height="500"/>
-    </td>
-      <td>
       <img src="https://github.com/manarkhaledx/ToDoList_Java/assets/96601859/3b15c2ff-39c1-4f29-9ea6-ec3120c730fe" width="250" height="500"/>
     </td>
   </tr>
