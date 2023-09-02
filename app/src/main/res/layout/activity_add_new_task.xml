@@ -33,6 +33,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="@dimen/_6sdp"
         app:layout_constraintStart_toStartOf="parent"
+        app:boxStrokeColor="@color/status_bar_color"
+        app:counterTextColor="@color/status_bar_color"
+        app:placeholderTextColor="@color/status_bar_color"
+        app:prefixTextColor="@color/status_bar_color"
+        app:hintTextColor="@color/status_bar_color"
         app:layout_constraintTop_toTopOf="parent">
         <EditText
             android:id="@+id/title_et"
@@ -51,6 +56,11 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="@dimen/_90sdp"
+        app:boxStrokeColor="@color/status_bar_color"
+        app:counterTextColor="@color/status_bar_color"
+        app:placeholderTextColor="@color/status_bar_color"
+        app:prefixTextColor="@color/status_bar_color"
+        app:hintTextColor="@color/status_bar_color"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
         <EditText
