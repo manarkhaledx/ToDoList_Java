@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
+import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
@@ -136,6 +137,19 @@ public class AddNewTaskActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true); // Enable the system back arrow
         }
     }
+    /**
+     * handle the back button in action bar
+     */
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            // Handle the back arrow click
+            onBackPressed();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     void changeStatusColor() {
         // Change status bar color
         Window window = getWindow();
